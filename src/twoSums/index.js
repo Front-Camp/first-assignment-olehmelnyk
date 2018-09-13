@@ -9,7 +9,11 @@
  * twoSums([5, 9, 3], 12); // [9, 3]
  */
 const twoSums = (arr, base) => {
-  /* your logic here...*/
+  arr.forEach((item, index, array) => {
+    if (array.includes(base - item)) {
+      return [item, base - item];
+    }
+  });
 };
 
 export default twoSums;

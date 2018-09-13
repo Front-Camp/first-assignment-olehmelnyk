@@ -11,7 +11,11 @@
  * sumElements([Infinity, NaN, 1]); // 1
  */
 const sumElements = arr => {
-  /* your logic here...*/
+  arr.reduce((accumulator, currentValue) => {
+    if (isFinite(currentValue)) {
+      accumulator += parseInt(currentValue);
+    }
+  });
 };
 
 export default sumElements;
