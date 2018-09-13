@@ -10,12 +10,17 @@
  * sumElements(['1', 'hi', 3]);     // 4
  * sumElements([Infinity, NaN, 1]); // 1
  */
-const sumElements = arr => {
-  arr.reduce((accumulator, currentValue) => {
-    if (isFinite(currentValue)) {
-      accumulator += parseInt(currentValue);
+const sumElements = arr => arr
+  .filter(i => Number.isInteger(parseInt(i)))
+  .reduce(
+  (accumulator = 0, currentValue = 0) => {    
+    if (typeof currentValue === 'string') {
+      currentValue = Math.max(parseFloat(currentValue), parseInt(currentValue), 0);
     }
-  });
-};
+
+    return accumulator += currentValue;
+    
+  }, 0
+);
 
 export default sumElements;
